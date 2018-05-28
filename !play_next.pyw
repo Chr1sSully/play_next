@@ -1,11 +1,11 @@
 import os
 import subprocess
 import shelve
-from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 
 # Initialise window
-window = Tk()
+window = tk.Tk()
 window.title("IMember")
 current_dir = os.getcwd()
 # get a list of all the files - remove this file and the watched.txt file also
@@ -37,8 +37,8 @@ def update_text_box():
         msg = "Next show is: \n" + full_selection[d['ep']] + "\nWhich is episode " + str(d['ep'] + 1)
     except:
         msg = 'Not enough episodes you only have \n' + str(len(full_selection)) + ' episodes downloaded'
-    t1.delete('1.0', END)
-    t1.insert(END, msg)
+    t1.delete('1.0', tk.END)
+    t1.insert(tk.END, msg)
     d.close()
 
 
@@ -98,16 +98,16 @@ def play_continuous():
         update_text_box()
         played += 1
 
-labelText=StringVar()
+labelText= tk.StringVar()
 labelText.set("Up Next:")
-labelDir=Label(window, textvariable=labelText, height=4)
+labelDir= tk.Label(window, textvariable=labelText, height=4)
 labelDir.grid(row=0,column=0)
 
-t1 = Text(window, height = 5, width = 40)
+t1 = tk.Text(window, height = 5, width = 40)
 t1.grid(row=0, column=1, columnspan=1)
 t1.insert('1.0', "Coming up next is......")
 
-t2 = Scale(window, from_=1, to=10, orient=HORIZONTAL)
+t2 = tk.Scale(window, from_=1, to=10, orient=tk.HORIZONTAL)
 t2.grid(row=1, column=1)
 
 
