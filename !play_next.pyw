@@ -2,7 +2,9 @@ import os
 import subprocess
 import shelve
 from tkinter import *
+from tkinter import ttk
 
+# Initialise window
 window = Tk()
 window.title("IMember")
 current_dir = os.getcwd()
@@ -109,23 +111,22 @@ t2 = Scale(window, from_=1, to=10, orient=HORIZONTAL)
 t2.grid(row=1, column=1)
 
 
-b_continue_play = Button(window, text="Continue Play", command=play_continuous)
+b_continue_play = ttk.Button(window, text="Continue Play", command=play_continuous)
 b_continue_play.grid(row=2, column=1)
 
 # b_next = Button(window, text="Play Next Episode", command=play_next)
 # b_next.grid(row=2, column=1)
 
-b_skip_back = Button(window, text="Skip Back", command=skip_back)
+b_skip_back = ttk.Button(window, text="Skip Back", command=skip_back)
 b_skip_back.grid(row=2, column=2)
 
-b_skip_fwd = Button(window, text="Skip Forward", command=skip_fwd)
+b_skip_fwd = ttk.Button(window, text="Skip Forward", command=skip_fwd)
 b_skip_fwd.grid(row=2, column=3)
 
-b_back = Button(window, text="Reset Playlist", command=reset_playlist)
+b_back = ttk.Button(window, text="Reset Playlist", command=reset_playlist)
 b_back.grid(row=2, column=0)
 
-# update_text_box()
-
+# 1 second after loading
 window.after(1000, update_text_box)
 window.bind('<Return>', on_return_key)
 
