@@ -1,3 +1,4 @@
+# Place this program in a folder with multiple video files
 import os
 import subprocess
 import shelve
